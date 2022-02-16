@@ -16,23 +16,17 @@ import hello.core.order.OrderServiceImpl;
 @Configuration
 public class AppConfig {
     @Bean
-    public MemberService memberService() {
-        System.out.println("call AppConfig.memberService");
+    public MemberService memberService(){
         return new MemberServiceImpl(memberRepository());
     }
-
     @Bean
     public MemberRepository memberRepository() {
-        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
-
     @Bean
-    public OrderService orderService() {
-        System.out.println("call AppConfig.orderService");
+    public OrderService orderService(){
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
-
     @Bean
     public DiscountPolicy discountPolicy() {
         // return new FixDiscountPolicy();
